@@ -66,9 +66,18 @@ module.exports = {
             .setCustomId('10'),
         )
 
+        const row3 = new MessageActionRow()
+        .addComponents(
+            new MessageButton()
+            .setLabel('Invite Guardian')
+            .setStyle('LINK')
+            .setURL('https://discord.com/api/oauth2/authorize?client_id=912773129183563776&permissions=1101525167126&scope=bot%20applications.commands')
+        )
+
+
         const desk = new MessageEmbed()
         .setTitle('Help Desk')
-        .setDescription(`:one: **Question**\n
+        .setDescription(`:one: **How can i invite Guardian**\n
         :two: **Question** \n
         :three:  **Question** \n
         :four: **Question** \n
@@ -94,7 +103,7 @@ module.exports = {
                   
               
               if (b.customId === "1") {
-                  await b.reply({embeds: [new MessageEmbed().setTitle('Some Title').setDescription('some description').setColor('GREEN').setFooter('Some footer')], ephemeral: true})
+                  await b.reply({embeds: [new MessageEmbed().setDescription('In order to invite Guardian use the button below').setColor('GREEN').setFooter('🛡️ Guardian Support')], components: [row3],ephemeral: true})
             } 
               })
         }
