@@ -78,7 +78,7 @@ module.exports = {
         const desk = new MessageEmbed()
         .setTitle('Help Desk')
         .setDescription(`:one: **How can i invite Guardian**\n
-        :two: **Question** \n
+        :two: **How i do i report a user or a bug** \n
         :three:  **Question** \n
         :four: **Question** \n
         :five: **Question** \n
@@ -104,7 +104,16 @@ module.exports = {
               
               if (b.customId === "1") {
                   await b.reply({embeds: [new MessageEmbed().setDescription('In order to invite Guardian use the button below').setColor('GREEN').setFooter('🛡️ Guardian Support')], components: [row3],ephemeral: true})
-            } 
+            } else if(b.customId === '2') {
+                await b.reply({embeds: [new MessageEmbed().setDescription('In order to report :').setFields({
+                    name: 'A user',
+                    value: `Simply dm any user with <@&914554015415697418> role proof of user abusing the bot cmds in bad way`,
+                    inline: false
+                }, {
+                    name: 'bug',
+                    value: 'Simply report the bug on <#914552649389592627> and devs will be fixing it'
+                }).setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
+            }
               })
         }
         
