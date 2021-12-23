@@ -1,4 +1,4 @@
-const { CommandInteraction, MessageEmbed, MessageActionRow, MessageSelectMenu, MessageButton, MessageReaction} = require('discord.js');
+const { CommandInteraction, MessageEmbed, MessageActionRow, MessageSelectMenu, MessageButton, MessageReaction, Collector} = require('discord.js');
 
 module.exports = {
     name: 'helpdesk',
@@ -83,7 +83,20 @@ module.exports = {
 
         interaction.reply({content: 'Done', ephemeral: true})
 
-        interaction.channel.send({embeds: [desk], components: [row1, row2]})
+       
+
+        const msg = await interaction.channel.send({ embeds: [desk], components: [row1, row2] })
+        const col = await msg.createMessageComponentCollector({
+          filter: (fn) => fn
+        })
+  
+              col.on('collect', async (b) => {
+                  
+              
+              if (b.customId === "1") {
+                  await b.reply({embeds: [new MessageEmbed().setTitle('Some Title').setDescription('some description').setColor('GREEN').setFooter('Some footer')], ephemeral: true})
+            } 
+              })
+        }
         
     }
-}
