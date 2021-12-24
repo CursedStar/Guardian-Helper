@@ -35,7 +35,7 @@ module.exports = {
 
        const m = await interaction.channel.send({embeds: [embed], components: [row]})
 
-       const iFilter = i => i.user.id === interaction.author.id;
+       const iFilter = i => i.user.id === interaction.member.id;
 
        const collector = m.createMessageComponentCollector({filter: iFilter, time: 60000});
 
