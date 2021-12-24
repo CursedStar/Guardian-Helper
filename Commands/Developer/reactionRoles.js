@@ -41,31 +41,31 @@ module.exports = {
 
        collector.on('collect', async i => {
            if(i.customId === 'updates') {
-               const role = interaction.guild.roles.cache.get('923975585963868170')
-               if(i.member.roles.cache?.has('923975585963868170')) {
-                   i.member.roles.remove('923975585963868170')
+               const role = interaction.guild.roles.cache.get('923555572433956864')
+               if(i.member.roles.cache?.has('923555572433956864')) {
+                   i.member.roles.remove('923555572433956864')
                    i.reply({content: `Removed ${role} from you`, ephemeral: true})
                } else {
-                   i.member.roles.add('923975585963868170')
-                   i.reply({content: `Added ${role} to you`})
+                   i.member.roles.add('923555572433956864')
+                   i.reply({content: `Added ${role} to you`, ephemeral: true})
                }
            } else if(i.customId === 'status') {
-            const role = interaction.guild.roles.cache.get('923976797631176765')
-            if(i.member.roles.cache?.has('923976797631176765')) {
-                i.member.roles.remove('923976797631176765')
+            const role = interaction.guild.roles.cache.get('923555712968294450')
+            if(i.member.roles.cache?.has('923555712968294450')) {
+                i.member.roles.remove('923555712968294450')
                 i.reply({content: `Removed ${role} from you`, ephemeral: true})
             } else {
-                i.member.roles.add('923976797631176765')
-                i.reply({content: `Added ${role} to you`})
+                i.member.roles.add('923555712968294450')
+                i.reply({content: `Added ${role} to you`, ephemeral: true})
             }
            } else if(i.customId === 'announcments') {
-            const role = interaction.guild.roles.cache.get('923976916963315723')
-            if(i.member.roles.cache?.has('923976916963315723')) {
-                i.member.roles.remove('923976916963315723')
+            const role = interaction.guild.roles.cache.get('923555650439622656')
+            if(i.member.roles.cache?.has('923555650439622656')) {
+                i.member.roles.remove('923555650439622656')
                 i.reply({content: `Removed ${role} from you`, ephemeral: true})
             } else {
-                i.member.roles.add('923976916963315723')
-                i.reply({content: `Added ${role} to you`})
+                i.member.roles.add('923555650439622656')
+                i.reply({content: `Added ${role} to you`, ephemeral: true})
             }
            }
        })
