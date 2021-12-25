@@ -79,8 +79,8 @@ module.exports = {
         .setTitle('Help Desk')
         .setDescription(`:one: **How can i invite Guardian**\n
         :two: **How i do i report a user or a bug** \n
-        :three:  **Question** \n
-        :four: **Question** \n
+        :three:  **How do i set the logs on my server?** \n
+        :four:  **What data the bot stores? Will my data be leakead?** \n
         :five: **Question** \n
         :six: **Question** \n
         :seven: **Question**\n
@@ -113,8 +113,12 @@ module.exports = {
                     name: 'bug',
                     value: 'Simply report the bug on <#914552649389592627> and devs will be fixing it'
                 }).setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
+            } else if(b.customId === '3') {
+                await b.reply({embeds: [new MessageEmbed().setDescription('In order to set the logs on your discord server, simply run the /set-logs and put the webhook token of the channel you want. In case you dont know how, simply go to channels settings, then go to intergration and make new Webhook, then copy the token and paste it on the cmd you done').setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
+            } else if(b.customId === '4') {
+                await b.reply({embeds: [new MessageEmbed().setDescription(`Guardian uses only channels ids and roles id. **No** personal data is stored such as passwords. Moreover you data is stored on [MongoDb](https://mongodb.com/) and can be accessed only by <@&914554015415697418> and <@791379233229504543>. Lastly your data is stored until the bot is out of the server `).setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
             }
-              })
-        }
+              }) 
+            }
         
     }
