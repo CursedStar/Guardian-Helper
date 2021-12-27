@@ -9,17 +9,53 @@ module.exports = {
      * @param {Client} client 
      */
     async execute(interaction, client) {
-        const channel = interaction.guild.channels.cache.get('914552680339349514')
+      
+        interaction.reply({content: 'Alright check dms', ephemeral: true})
 
-        const Embed = new MessageEmbed()
-        .setTitle('Suggestion Submission')
-        .setDescription(`Hey in order to submit your suggestion simply type it below and it will be send automatically on <#914552680339349514> `)
-        .setColor('GREEN')
-        .setFooter('🛡️ Guardian Support')
-        .setTimestamp()
+        const Questions = [
+            'Hey there ! In order to submit your suggestion simply type it below',
+            'Can you explain the suggestion as detailed as possible?',
+            'Oh alright! Thanks for your suggestion, it will be forwarded to devs. Type anything to proceed',
+            'Successfully submited your suggestion thank you :)'
+        ]
+         let collectCounter = 0;
+         let endCounter = 0;
 
-        interaction.reply({content: 'Done now check dms to continue', ephemeral: true})
+         const filter = m.user.id === interaction.member.id;
+         const appStart = await interaction.user.send(Questions[collectCounter++])
+         const channel = appStart.channel;
 
-        interaction.user.send({embeds: [Embed]})
+         const collector = channel.createMessageComponentCollector(filter);
+
+         collector.on('collect', () => {
+             if (collectCounter < Questions.length) {
+                 channel.send({content: 'Thanks for your sugggestion'})
+                 collector.stop('fulfilled');
+             }
+         });
+         const appChannel = client.users.cache.get('914552680339349514'); // Channel of the Devs (Report channel)
+    collector.on('end', (collected, reason) => {
+        if (reason === 'fulfilled') {
+            let index = 1;
+            const mapped = collected
+                .map(msg => {
+                    return `**${index++})** | ${questions[endCounter++]}\n-> ${
+                        msg.content
+                    }`;
+                })
+                .join('\n\n');
+            
+                const embed999 = new MessageEmbed().setAuthor(
+                    message.user.tag,
+                    message.user.displayAvatarURL({ dynamic: true })
+                ).setTitle`New Bug Reported`
+                    .setDescription(mapped)
+                    .setColor('BLUE')
+                    .setTimestamp()
+            
+                interaction.channel.send({embeds: [embed999]})
+            
+        }
+    });
     }
 }
