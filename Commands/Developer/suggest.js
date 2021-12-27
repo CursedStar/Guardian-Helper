@@ -21,7 +21,7 @@ module.exports = {
          let collectCounter = 0;
          let endCounter = 0;
 
-         const filter = m.author.id === interaction.member.id;
+         const filter =  m => m.author.id === interaction.member.id;
          const appStart = await interaction.user.send(Questions[collectCounter++])
          const channel = appStart.channel;
 
@@ -39,7 +39,7 @@ module.exports = {
             let index = 1;
             const mapped = collected
                 .map(msg => {
-                    return `**${index++})** | ${questions[endCounter++]}\n-> ${
+                    return `**${index++})** | ${Questions[endCounter++]}\n-> ${
                         msg.content
                     }`;
                 })
