@@ -21,7 +21,7 @@ module.exports = {
          let collectCounter = 0;
          let endCounter = 0;
 
-         const filter = m.user.id === interaction.member.id;
+         const filter = m.author.id === interaction.member.id;
          const appStart = await interaction.user.send(Questions[collectCounter++])
          const channel = appStart.channel;
 
@@ -46,8 +46,8 @@ module.exports = {
                 .join('\n\n');
             
                 const embed999 = new MessageEmbed().setAuthor(
-                    message.user.tag,
-                    message.user.displayAvatarURL({ dynamic: true })
+                    interaction.author.tag,
+                    interaction.author.displayAvatarURL({ dynamic: true })
                 ).setTitle`New Bug Reported`
                     .setDescription(mapped)
                     .setColor('BLUE')
