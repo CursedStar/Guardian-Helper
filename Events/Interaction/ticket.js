@@ -1,5 +1,5 @@
 const { BaseMessageComponent, MessageActionRow, MessageEmbed, MessageButton , CommandInteraction} = require('discord.js');
-const client = require('../../Structures/index');
+const client = require('../../index');
 const { staff } = require('../../Structures/config.json')
 
 module.exports = {
