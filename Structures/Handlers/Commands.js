@@ -1,5 +1,9 @@
 const { Perms } = require('../Validation/Permissions');
 const { Client } = require('discord.js');
+const { promisify } = require('util');
+const { glob } = require('glob');
+const PG = promisify(glob);
+const Ascii = require('ascii-table');
 
 
 /**
