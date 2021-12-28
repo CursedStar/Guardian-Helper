@@ -107,7 +107,7 @@ module.exports = {
             } else if(b.customId === '2') {
                 await b.reply({embeds: [new MessageEmbed().setDescription('In order to report :').setFields({
                     name: 'A user',
-                    value: `Simply dm any user with <@&914554015415697418> role proof of user abusing the bot cmds in bad way`,
+                    value: `Simply open a ticket on <#925402791592202321> and post proof of user abusing the bot`,
                     inline: false
                 }, {
                     name: 'bug',

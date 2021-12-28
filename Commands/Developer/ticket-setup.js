@@ -15,12 +15,12 @@ module.exports = {
         .setTitle('Support Ticket')
         .setAuthor(interaction.guild.name, interaction.guild.iconURL({dynamic: true}))
         .setDescription(
-            "__**How to make a ticket**__\n" +
+            "__**Open a ticket in order:**__\n" +
 
 
-            "> Click on the reaction that relates to your need\n" +
+            "> To Report a user\n" +
 
-            "> Once the ticket is made you will be able to type in there"
+            "> To reddem Premium"
 
         )
         .setColor('GREEN')
