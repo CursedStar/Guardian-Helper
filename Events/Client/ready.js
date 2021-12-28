@@ -10,7 +10,7 @@ module.exports = {
      */
     execute(client) {
         console.log('This client is now ready')
-        client.user.setActivity('help desk', {type: 'WATCHING'})
+        client.user.setActivity('tickets', {type: 'WATCHING'})
 
         if(!Database) return;
         mongoose.connect(Database, {
