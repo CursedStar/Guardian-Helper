@@ -10,7 +10,7 @@ const Ascii = require('ascii-table');
  * @param {Client} client
  */
 
-module.exports = async(client, PG, Ascii) => {
+module.exports = async(client) => {
    const Table = new Ascii('Commands Loaded')
 
    CommandsArray = [];
