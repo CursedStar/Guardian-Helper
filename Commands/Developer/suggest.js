@@ -1,61 +1,73 @@
-const { CommandInteraction, MessageEmbed, Client} = require('discord.js');
+const { CommandInteraction, MessageEmbed, WebhookClient } = require ('discord.js');
 
 module.exports = {
-    name: 'suggest',
-    description: 'suggets things for bot',
-    /**
-     * 
-     * @param {CommandInteraction} interaction 
-     * @param {Client} client 
-     */
-    async execute(interaction, client) {
-      
-        interaction.reply({content: 'Alright check dms', ephemeral: true})
+    name: "suggest",
+    description: "Create a suggestion in an organized matter!",
+    options: [
+        {
+            name: "type",
+            description: "Select the type!",
+            required: true,
+            type: "STRING",
+            choices: [
+                {
+                    name: "Command",
+                    value: "Command"
+                },
+                {
+                    name: "Event",
+                    value: "Event"
+                },
+                {
+                    name: "System",
+                    value: "System"
+                },
+            ]
+        },
+        {
+            name: "name",
+            description: "Provide a name for your suggestion!",
+            type: "STRING",
+            required: true
+        },
+        {
+            name: "functionality",
+            description: "Describe the funcionality of this suggestion!",
+            type: "STRING",
+            required: true
+        },
+    ],
+  /**
+   * 
+   * @param {CommandInteraction} interaction 
+   */
+    async execute(interaction) {
+        const { options } = interaction;
 
-        const Questions = [
-            'Hey there ! In order to submit your suggestion simply type it below',
-            'Can you explain the suggestion as detailed as possible?',
-            'Oh alright! Thanks for your suggestion, it will be forwarded to devs. Type anything to proceed',
-            'Successfully submited your suggestion thank you :)'
-        ]
-         let collectCounter = 0;
-         let endCounter = 0;
+        const type = options.getString("type");
+        const name = options.getString("name");
+        const funcs = options.getString("functionality");
 
-         const filter =  m => m.author.id === interaction.member.id;
-         const appStart = await interaction.user.send(Questions[collectCounter++])
-         const channel = appStart.channel;
+        const Error = new MessageEmbed()
+        .setColor("RED")
+        .setTitle("❗ There was an error.")
+        .setDescription(`\n
+        Wrong channel.`)
+        .setFields(
+            {name: "Click the channel below if you want to sugget something", value: "<#914552680339349514>", inline: true },
+        )
+     
+        if(interaction.channelId != "914552680339349514") return interaction.reply({embeds: [Error], ephemeral: true})
 
-         const collector = channel.createMessageComponentCollector(filter);
+        interaction.reply({content: 'done', ephemeral: true})
 
-         collector.on('collect', () => {
-             if (collectCounter < Questions.length) {
-                 channel.send({content: 'Thanks for your sugggestion'})
-                 collector.stop('fulfilled');
-             }
-         });
-         const appChannel = client.users.cache.get('914552680339349514'); // Channel of the Devs (Report channel)
-    collector.on('end', (collected, reason) => {
-        if (reason === 'fulfilled') {
-            let index = 1;
-            const mapped = collected
-                .map(msg => {
-                    return `**${index++})** | ${Questions[endCounter++]}\n-> ${
-                        msg.content
-                    }`;
-                })
-                .join('\n\n');
-            
-                const embed999 = new MessageEmbed().setAuthor(
-                    interaction.author.tag,
-                    interaction.author.displayAvatarURL({ dynamic: true })
-                ).setTitle`New Bug Reported`
-                    .setDescription(mapped)
-                    .setColor('BLUE')
-                    .setTimestamp()
-            
-                interaction.channel.send({embeds: [embed999]})
-            
-        }
-    });
+        const Response = new MessageEmbed()
+        .setColor("AQUA")
+        .setDescription(`${interaction.member} has suggested a ${type}.`)
+        .addField("Name", `${name}`, false)
+        .addField("Functionality", `${funcs}`, false)
+        const message = await interaction.channel.send({embeds: [Response], fetchReply: true });
+                message.react("<:upvote:925705906791018497>");
+                message.react("<:downvote:925705928387461170>");
     }
-}
+};
