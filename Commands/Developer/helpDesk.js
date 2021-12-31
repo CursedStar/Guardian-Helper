@@ -114,11 +114,13 @@ module.exports = {
                     value: 'Simply report the bug on <#914552649389592627> and devs will be fixing it'
                 }).setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
             } else if(b.customId === '3') {
-                await b.reply({embeds: [new MessageEmbed().setDescription('In order to set the logs on your discord server, simply run the /set-logs and put the webhook token of the channel you want. In case you dont know how, simply go to channels settings, then go to intergration and make new Webhook, then copy the token and paste it on the cmd you done').setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
-            } else if(b.customId === '4') {
-                await b.reply({embeds: [new MessageEmbed().setDescription(`Guardian uses only channels ids and roles id. **No** personal data is stored such as passwords. Moreover you data is stored on [MongoDb](https://mongodb.com/) and can be accessed only by <@&914554015415697418> and <@791379233229504543>. Lastly your data is stored until the bot is out of the server `).setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
-            } else if(b.customId === '5') {
-                await b.reply({embeds: [new MessageEmbed().setDescription(`You can purchuase premium [here](https://ko-fi.com/guardianbott/tiers) and after you buy the prefered tier you should receive <@&925748819986120764> and after you get the role open a ticket on <#925402791592202321> in order to reedem it`).setColor('GREEN').setTimestamp()], ephemeral: true})
+                await b.reply({embeds: [new MessageEmbed().setDescription('In order to set Modlogs on your server simply run the /set-logs command and put the channel you want. Then simply all logs will be sent there ').setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
+                
+            } else if (b.customId === '4') {
+                await b.reply({embeds: [new MessageEmbed().setDescription(`Guardian uses only channels ids and roles id. **No** personal data is stored such as passwords. Moreover you data is stored on [MongoDb](https://mongodb.com/) and can be accessed only by <@&914554015415697418> and <@791379233229504543>. Lastly your data is stored until the bot is out of the server `).setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true}) } else if(b.customId === '5') {
+                
+            } else if (b.customId === '5') {
+                await b.reply({embeds: [new MessageEmbed().setDescription(`You can purchuase premium [here](https://ko-fi.com/guardianbott/tiers) and after you buy the prefered tier you should receive <@&925748819986120764> and after you get the role open a ticket on <#925402791592202321> in order to reedem it`).setColor('GREEN').setTimestamp().setFooter('🛡️ Guardian Support')], ephemeral: true})
             }
               }) 
             } 
