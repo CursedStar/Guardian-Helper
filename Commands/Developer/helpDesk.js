@@ -92,37 +92,8 @@ module.exports = {
 
         interaction.reply({content: 'Done', ephemeral: true})
 
-       
+       interaction.channel.send({embeds: [desk], components: [row1, row2]})
 
-        const msg = await interaction.channel.send({ embeds: [desk], components: [row1, row2] })
-        const col = await msg.createMessageComponentCollector({
-          filter: (fn) => fn
-        })
-  
-              col.on('collect', async (b) => {
-                  
-              
-              if (b.customId === "1") {
-                  await b.reply({embeds: [new MessageEmbed().setDescription('In order to invite Guardian use the button below').setColor('GREEN').setFooter('🛡️ Guardian Support')], components: [row3],ephemeral: true})
-            } else if(b.customId === '2') {
-                await b.reply({embeds: [new MessageEmbed().setDescription('In order to report :').setFields({
-                    name: 'A user',
-                    value: `Simply open a ticket on <#925402791592202321> and post proof of user abusing the bot`,
-                    inline: false
-                }, {
-                    name: 'bug',
-                    value: 'Simply report the bug on <#914552649389592627> and devs will be fixing it'
-                }).setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
-            } else if(b.customId === '3') {
-                await b.reply({embeds: [new MessageEmbed().setDescription('In order to set Modlogs on your server simply run the /set-logs command and put the channel you want. Then simply all logs will be sent there ').setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true})
-                
-            } else if (b.customId === '4') {
-                await b.reply({embeds: [new MessageEmbed().setDescription(`Guardian uses only channels ids and roles id. **No** personal data is stored such as passwords. Moreover you data is stored on [MongoDb](https://mongodb.com/) and can be accessed only by <@&914554015415697418> and <@791379233229504543>. Lastly your data is stored until the bot is out of the server `).setColor('GREEN').setFooter('🛡️ Guardian Support')], ephemeral: true}) } else if(b.customId === '5') {
-                
-            } else if (b.customId === '5') {
-                await b.reply({embeds: [new MessageEmbed().setDescription(`You can buy premium [here](https://ko-fi.com/guardianbott/tiers) and after the payment is successfull you should get the <@&925748819986120764> role, after you get this role open a ticket on <#925402791592202321> and wait for owner to come help you`).setColor('GREEN')], ephemeral: true})
-            }
-              }) 
-            } 
-        
+       
+        }
     }
