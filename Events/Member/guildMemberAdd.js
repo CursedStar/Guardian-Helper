@@ -14,8 +14,8 @@ module.exports = {
         member.roles.add('914553930418118656');
 
         const Welcomer = new WebhookClient({
-            id: '919611567341969529',
-            token: 'MdOGWxPWVfCRvKs7JCH2NyzzgOgHCvmYZjr_mrQN1g5siQ4nxC5EnXYPffny2TwjjiFx'
+            id: '',
+            token: ''
         });
         const Welcome = new MessageEmbed()
             .setColor('AQUA')
