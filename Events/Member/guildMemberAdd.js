@@ -10,6 +10,7 @@ module.exports = {
 
         const { user, guild } = member;
 
+      try{
         member.roles.add('914553930418118656');
 
         const Welcomer = new WebhookClient({
@@ -42,5 +43,8 @@ module.exports = {
                 .setColor('GREEN')
                 .setTimestamp()], components: [row]
         })
+      } catch(error) {
+          console.log('user got dms locked')
+      } 
     }
 }

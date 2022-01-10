@@ -23,43 +23,43 @@ module.exports = {
         .setDescription('Hello and welcome to this server. Below you will see some rules you should be following')
         .addFields({
             name: 'Rule 1',
-            value: '<:arrow:923607628356157491> Please follow Discord Terms of Service (https://discord.com/terms) & Community Guidelines (https://discord.com/guidelines)',
+            value: '<:ArrowRight:914559798547189790> Please follow Discord Terms of Service (https://discord.com/terms) & Community Guidelines (https://discord.com/guidelines)',
             inline: false
         },
         {
             name: 'Rule 2',
-            value: '<:arrow:923607628356157491>  You must talk about appropriate topics only.',
+            value: '<:ArrowRight:914559798547189790> You must talk about appropriate topics only.',
             inline: false
         }, {
             name: 'Rule 3',
-            value: '<:arrow:923607628356157491> Nfsw content is not allowed here ',
+            value: '<:ArrowRight:914559798547189790> Nfsw content is not allowed here ',
             inline: false
         },{
             name: 'Rule 4',
-            value: '<:arrow:923607628356157491>  Advertising is not allowed on chats or either on dms',
+            value: '<:ArrowRight:914559798547189790> Advertising is not allowed on chats or either on dms',
             inline: false
         }, {
             name: 'Rule 5',
-            value: '<:arrow:923607628356157491>  No begging either for nitro or such things',
+            value: '<:ArrowRight:914559798547189790>  No begging either for nitro or such things',
             inline: false
         },
         {
             name: 'Rule 6',
-            value: '<:arrow:923607628356157491>  No Mini moding. Mods exist for a reason ',
+            value: '<:ArrowRight:914559798547189790>  No Mini moding. Mods exist for a reason ',
             inline: false
         },
         {
             name: 'Rule 7',
-            value: '<:arrow:923607628356157491>  Dont  create drama on chats dms exist for a reason  ',
+            value: '<:ArrowRight:914559798547189790>  Dont  create drama on chats dms exist for a reason  ',
             inline: false
         },
         {
             name: 'Rule 8',
-            value: '<:arrow:923607628356157491>  Here you should speak only enlgish ',
+            value: '<:ArrowRight:914559798547189790> Here you should speak only enlgish ',
             inline: false
         }, {
             name: 'Rule 9',
-            value: '<:arrow:923607628356157491> Use your brain ~~if you have~~ before chatting ',
+            value: '<:ArrowRight:914559798547189790> Use your brain ~~if you have~~ before chatting ',
             inline: false
         })
         .setColor('BLUE')
